@@ -1,14 +1,14 @@
 import TableBarChart from "../barcharts/tableBarChart";
 
 const style_td = {
-    border: "1px solid green", borderRadius: 10, padding: 5, color: "green", textAlign: "center"
+  border: "1px solid green", borderRadius: 10, padding: 5, color: "green", textAlign: "center"
 }
   
 const MiniChartTable = ({data}) => {
 
     if(!Object.keys(data).includes("columns") || !Object.keys(data).includes("rows")) return (
       <p style={{color: "red", textAlign: "center"}}>
-        Can't display table!<br/> Please check data format!
+        Cannot display table!<br/> Please check data format!
       </p>
     )
 
@@ -54,7 +54,13 @@ export default function VolumePriceGraph({chartData, tableData, title, currency}
         justifyContent: "space-between"
       }}>
         <div></div>
-        <h2 style={{ textAlign: "center", color: "gray"}}>{title}<br/><i style={{fontWeight: "lighter"}}>({currency})</i></h2>
+        <h2 style={{ textAlign: "center", color: "gray"}}>
+          {title}
+          <br/>
+          <i style={{fontWeight: "lighter"}}>
+            ({currency})
+          </i>
+        </h2>
         <MiniChartTable data={tableData} />
       </div>
       <TableBarChart data={chartData} />
