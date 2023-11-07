@@ -62,13 +62,7 @@ export default function InteractiveBarChart({data}) {
         percentage: percentageDifference(graphsData[0].value, graphsData[1].value)
       });
     } else if(graphsData.length > 2) {
-      setResults({
-        positions: [0, 0, 0],
-        difference: 0,
-        percentage: 0
-      });
-      setGraphsData([]);
-      setSelectedGraphs([]);
+      clearData();
     }
   }, [graphsData])
 
@@ -79,10 +73,12 @@ export default function InteractiveBarChart({data}) {
     if(selectedGraphs.length === 1) {
       if(index === selectedGraphs[0]) {
         alert('Operation Not Authorized');
+        clearData();
         return;
       }
       if(index < selectedGraphs[0]) {
         alert('Operation Not Authorized');
+        clearData();
         return;
       }
     }
@@ -90,6 +86,16 @@ export default function InteractiveBarChart({data}) {
     // tracking selected graphs indexes 
     // (used for graph coloriation purpose)
     setSelectedGraphs(p => [...p, index]);
+  }
+
+  function clearData() {
+    setResults({
+      positions: [0, 0, 0],
+      difference: 0,
+      percentage: 0
+    });
+    setGraphsData([]);
+    setSelectedGraphs([]);
   }
 
   console.log("graphs data : ", graphsData);
