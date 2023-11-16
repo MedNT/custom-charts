@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "next": "14.0.1",
+    "pigeon-maps": "^0.21.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-simple-maps": "^3.0.0",
     "recharts": "^2.9.2"
   },
   "devDependencies": {

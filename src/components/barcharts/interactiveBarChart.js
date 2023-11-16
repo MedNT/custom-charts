@@ -40,7 +40,7 @@ const DifferenceCalculator = ({data}) => {
 }
 
 
-export default function InteractiveBarChart({data}) {
+export default function InteractiveBarChart({data, interactive=true}) {
 
   const [graphsData, setGraphsData] = useState([]);
   const [selectedGraphs, setSelectedGraphs] = useState([]);
@@ -67,8 +67,6 @@ export default function InteractiveBarChart({data}) {
   }, [graphsData])
 
   function barClickHandler(data, index) {
-    console.log("data : ", data);
-    console.log("index : ", index);
     // tracking selected graphs data
     if(selectedGraphs.length === 1) {
       if(index === selectedGraphs[0]) {
@@ -98,10 +96,6 @@ export default function InteractiveBarChart({data}) {
     setSelectedGraphs([]);
   }
 
-  console.log("graphs data : ", graphsData);
-  console.log("selected graphs : ", selectedGraphs);
-  console.log("results : ", results);
-
   return (
     <div style={{
       display: "flex",
@@ -118,10 +112,10 @@ export default function InteractiveBarChart({data}) {
       }}>
         <DifferenceCalculator data={results} />
       </div>
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart width={730} height={250} data={data} margin={{top: 20, right: 20, bottom: 20, left: 20}}  >
             <XAxis dataKey="day" />
-            <Bar dataKey="value" fill="#8884d8" label={{position: 'top'}} onClick={barClickHandler}>
+            <Bar dataKey="value" fill="#8884d8" label={{position: 'top'}} onClick={interactive? barClickHandler: () => {}}>
                 {
                     data.map((entry, index) => (
                         <Cell

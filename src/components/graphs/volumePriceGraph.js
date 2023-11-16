@@ -14,16 +14,16 @@ const MiniChartTable = ({data}) => {
 
     return (
       <table style={{borderSpacing: "3px"}}>
-        <thead>
-          {data.columns.map((column, key) => (
-            (key !== 0)? (
-              <th key={key} style={{ backgroundColor: "#DDD", padding: 5}}>{column}</th>
-            ):(
-              <th key={key}></th>
-            )
-          ))}
-        </thead>
         <tbody>
+          <tr>
+            {data.columns.map((column, key) => (
+              (key !== 0)? (
+                <th key={key} style={{ backgroundColor: "#DDD", padding: 5}}>{column}</th>
+              ):(
+                <th key={key}></th>
+              )
+            ))}
+          </tr>
           {data.rows.map((row, key) => (
             <tr key={key}>
               {Object.keys(row).map((item, index) => (

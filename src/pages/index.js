@@ -1,14 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import TableBarChart from '@/components/barcharts/tableBarChart'
-import VolumePriceGraph from '@/components/graphs/volumePriceGraph'
-import { graph1Data, graph1Table } from '@/data/graph1Data'
-import TurnoverVariation from '@/components/graphs/turnoverVariation'
-import { graph2Data } from '@/data/graph2Data'
-
-
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -19,19 +9,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: "30px", alignItems: "center"}}>
-        <VolumePriceGraph 
-          chartData={graph1Data}
-          tableData={graph1Table}
-          title={"Effet volume et Effet prix (YTD vs YTD-1)"} 
-          currency={"MMAD"}
-        />
-        <TurnoverVariation 
-          chartData={graph2Data}
-          title={"Variation du Chiffre d'affaire"}
-          currency={"MMAD"}
-        />
-      </div>
     </div>
   )
 }

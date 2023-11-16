@@ -8,7 +8,7 @@ export default function TurnoverVariation({chartData, title, currency}) {
             gap: 20,
             border: "1px solid #DDD",
             borderRadius: 10,
-            height: 500,
+            height: "100%",
             width : "100%",
             padding: 15
           }}
